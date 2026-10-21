@@ -73,13 +73,20 @@ class DecoderSelector(private val ctx: Context) {
 
     fun software(mime: String, w: Int, h: Int): MediaCodecInfo? =
         MediaCodecList(MediaCodecList.ALL_CODECS).codecInfos.firstOrNull { info ->
-            !info.isEncoder && info.supportsMime(mime) &&
-                (if (Build.VERSION.SDK_INT >= 29) info.isSoftwareOnly
-                else info.name.lowercase().let {
-                    it.startsWith("omx.google.") || it.startsWith("c2.android.") ||
-                        (!it.startsWith("omx.") && !it.startsWith("c2."))
-                })
+            !info.isEncoder && info.supportsMime(mime) && isSoftware(info)
         }?.takeIf { _portraitSafe(w, h, it.videoCaps(mime)::isSizeSupported) }
+
+    // experimental: first software decoder for mime, no size check (the user asked for it)
+    fun software(mime: String): MediaCodecInfo? =
+        MediaCodecList(MediaCodecList.ALL_CODECS).codecInfos.firstOrNull { info ->
+            !info.isEncoder && !isAliasCodec(info) && info.supportsMime(mime) && isSoftware(info)
+        }.also { if (it == null) Log.w(TAG, "no software decoder for $mime") }
+
+    // experimental: decoder chosen by name in settings, hw or sw, blacklist ignored
+    fun byName(name: String, mime: String): MediaCodecInfo? =
+        MediaCodecList(MediaCodecList.ALL_CODECS).codecInfos.firstOrNull { info ->
+            !info.isEncoder && info.name.equals(name, ignoreCase = true) && info.supportsMime(mime)
+        }.also { if (it == null) Log.w(TAG, "decoder $name not found for $mime, using mode") }
 
     fun adaptive(info: MediaCodecInfo, mime: String) = !_inList(noAdaptive, info.name) &&
         runCatching { info.getCapabilitiesForType(mime).isFeatureSupported(CodecCapabilities.FEATURE_AdaptivePlayback) }
@@ -197,5 +204,33 @@ class DecoderSelector(private val ctx: Context) {
         )
 
         fun MediaCodecInfo.videoCaps(mime: String): VideoCapabilities = getCapabilitiesForType(mime).videoCapabilities!!
+
+        fun isSoftware(info: MediaCodecInfo): Boolean =
+            if (Build.VERSION.SDK_INT >= 29) info.isSoftwareOnly
+            else info.name.lowercase().let {
+                it.startsWith("omx.google.") || it.startsWith("c2.android.") ||
+                    (!it.startsWith("omx.") && !it.startsWith("c2."))
+            }
+
+        fun isAliasCodec(info: MediaCodecInfo): Boolean = Build.VERSION.SDK_INT >= 29 && info.isAlias
+
+        // every decoder the device lists for mime, for the settings screen; aliases point to the same codec
+        fun listDecoders(mime: String): List<DecoderEntry> = runCatching {
+            MediaCodecList(MediaCodecList.ALL_CODECS).codecInfos
+                .filter { info ->
+                    !info.isEncoder && !isAliasCodec(info) &&
+                        info.supportedTypes.any { it.equals(mime, ignoreCase = true) }
+                }
+                .map { info ->
+                    val secureOnly = info.name.endsWith(".secure", ignoreCase = true) || runCatching {
+                        info.getCapabilitiesForType(mime).isFeatureRequired(CodecCapabilities.FEATURE_SecurePlayback)
+                    }.getOrDefault(false)
+                    DecoderEntry(info.name, isSoftware(info), secureOnly)
+                }
+        }.getOrDefault(emptyList())
     }
 }
+
+enum class DecodeMode { AUTO, HW_SW, SW }
+
+data class DecoderEntry(val name: String, val software: Boolean, val secureOnly: Boolean)

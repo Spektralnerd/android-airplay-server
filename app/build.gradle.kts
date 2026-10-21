@@ -30,11 +30,12 @@ android {
     }
 
     defaultConfig {
-        applicationId = "io.github.jqssun.airplay"
+        // separate id so this experimental build installs next to the original app
+        applicationId = "io.github.jqssun.airplay.swdec"
         minSdk = 23
         targetSdk = 37
         versionCode = 36
-        versionName = "0.0.36"
+        versionName = "0.0.36-swdec1"
 
         externalNativeBuild {
             cmake {

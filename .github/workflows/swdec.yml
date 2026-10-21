@@ -1,0 +1,59 @@
+name: Build swdec APK
+
+# Experimental build with selectable software video decoders.
+# Runs on pushes to the "swdec" branch or manually; signs with a throwaway test key.
+
+on:
+  push:
+    branches:
+      - "swdec"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: recursive
+
+      - name: Use JDK
+        uses: actions/setup-java@v6
+        with:
+          distribution: "zulu"
+          java-version: "21"
+          cache: "gradle"
+
+      - name: Test signing key
+        run: |
+          keytool -genkeypair -keystore "$RUNNER_TEMP/swdec.jks" -storepass swdectest -keypass swdectest \
+            -alias swdec -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=AirPlay swdec test build"
+          printf 'storeFile=%s\nstorePassword=swdectest\nkeyAlias=swdec\nkeyPassword=swdectest\n' \
+            "$RUNNER_TEMP/swdec.jks" > local.properties
+
+      - name: Build
+        run: |
+          export SOURCE_DATE_EPOCH=$(git log -1 --pretty=%ct)
+          chmod +x ./gradlew
+          ./gradlew assembleRelease --stacktrace
+          cp app/build/outputs/apk/release/app-release.apk "airplay-swdec-${{ github.run_number }}.apk"
+          rm local.properties
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: airplay-swdec-${{ github.run_number }}
+          path: airplay-swdec-${{ github.run_number }}.apk
+
+      - name: Publish pre-release
+        uses: softprops/action-gh-release@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: swdec build ${{ github.run_number }}
+          tag_name: swdec-${{ github.run_number }}
+          target_commitish: ${{ github.sha }}
+          prerelease: true
+          files: airplay-swdec-${{ github.run_number }}.apk

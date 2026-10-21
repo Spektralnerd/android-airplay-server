@@ -54,6 +54,7 @@ import io.github.jqssun.airplay.discovery.UsbMdnsAdvertiser
 import io.github.jqssun.airplay.download.VideoDownloader
 import io.github.jqssun.airplay.renderer.AirPlayVideoPlayer
 import io.github.jqssun.airplay.renderer.AudioRenderer
+import io.github.jqssun.airplay.renderer.DecodeMode
 import io.github.jqssun.airplay.renderer.VideoRenderer
 import io.github.jqssun.airplay.viewmodel.DebugInfo
 import java.net.NetworkInterface
@@ -400,7 +401,17 @@ class AirPlayService : LifecycleService(), RaopCallbackHandler, LogListener {
         val overscanned = prefs[Prefs.OVERSCANNED]
         val audioLatencyMs = prefs[Prefs.AUDIO_LATENCY_MS]
         val (reqW, reqH) = _displaySize(clamp = false)
-        val h265 = videoRenderer.selectDecoders(reqW, reqH, maxFps, Prefs.forced(prefs[Prefs.H265]))
+        val decodeMode = when (prefs[Prefs.DECODER_MODE]) {
+            Prefs.HW_SW -> DecodeMode.HW_SW
+            Prefs.SW -> DecodeMode.SW
+            else -> DecodeMode.AUTO
+        }
+        val h265 = videoRenderer.selectDecoders(
+            reqW, reqH, maxFps, Prefs.forced(prefs[Prefs.H265]),
+            mode = decodeMode,
+            avcName = prefs[Prefs.AVC_DECODER].takeIf { it != Prefs.AUTO },
+            hevcName = prefs[Prefs.HEVC_DECODER].takeIf { it != Prefs.AUTO }
+        )
         val alac = prefs[Prefs.ALAC_ENABLED]
         val aac = prefs[Prefs.AAC_ENABLED]
 

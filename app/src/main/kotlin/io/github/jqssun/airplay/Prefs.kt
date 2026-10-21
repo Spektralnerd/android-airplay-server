@@ -54,6 +54,7 @@ fun <T> SharedPreferences.observe(read: SharedPreferences.() -> T): Flow<T> =
 object Prefs {
     const val NAME = "settings"
     const val AUTO = "auto"; const val ON = "on"; const val OFF = "off"
+    const val HW_SW = "hw_sw"; const val SW = "sw"
     const val PORTRAIT = "portrait"; const val LANDSCAPE = "landscape"
     const val FALLBACK_MAC_ADDRESS = "fallback_mac_address"
     val ADAPTIVE_PERCENTILES = intArrayOf(80, 85, 90, 95, 99)
@@ -78,6 +79,11 @@ object Prefs {
     val BOOT_AUTO_START = bool("boot_auto_start", true)
     val RUN_IN_BACKGROUND = bool("run_in_background", true)
     val H265 = tri("h265", restart = true)
+    // experimental: auto = stock (hardware only), hw_sw = software if no hardware, sw = software only
+    val DECODER_MODE = str("decoder_mode", AUTO, restart = true) { it in setOf(AUTO, HW_SW, SW) }
+    // auto or any codec name the device lists; free-form on purpose
+    val AVC_DECODER = str("avc_decoder", AUTO, restart = true) { it.isNotBlank() }
+    val HEVC_DECODER = str("hevc_decoder", AUTO, restart = true) { it.isNotBlank() }
     val ENFORCE_SDR = bool("enforce_sdr", true, restart = true)
     val KEY_ALLOW_FRAME_DROP = bool(MediaFormat.KEY_ALLOW_FRAME_DROP, true, restart = true)
     val KEY_PRIORITY = bool(MediaFormat.KEY_PRIORITY, true, restart = true)

@@ -30,6 +30,8 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import io.github.jqssun.airplay.Prefs
 import io.github.jqssun.airplay.R
 import io.github.jqssun.airplay.appSettingsIntent
+import io.github.jqssun.airplay.renderer.DecoderEntry
+import io.github.jqssun.airplay.renderer.DecoderSelector
 import io.github.jqssun.airplay.viewmodel.MainViewModel
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
@@ -39,6 +41,9 @@ import kotlin.math.roundToInt
 fun SettingsScreen(viewModel: MainViewModel) {
     val serverName by viewModel.pref(Prefs.SERVER_NAME).collectAsState()
     val h265 by viewModel.pref(Prefs.H265).collectAsState()
+    val decoderMode by viewModel.pref(Prefs.DECODER_MODE).collectAsState()
+    val avcDecoderName by viewModel.pref(Prefs.AVC_DECODER).collectAsState()
+    val hevcDecoderName by viewModel.pref(Prefs.HEVC_DECODER).collectAsState()
     val enforceSdr by viewModel.pref(Prefs.ENFORCE_SDR).collectAsState()
     val alacEnabled by viewModel.pref(Prefs.ALAC_ENABLED).collectAsState()
     val aacEnabled by viewModel.pref(Prefs.AAC_ENABLED).collectAsState()
@@ -217,6 +222,40 @@ fun SettingsScreen(viewModel: MainViewModel) {
             value = h265,
             options = tri,
             onValueChange = { viewModel.set(Prefs.H265, it) }
+        )
+
+        SettingChips(
+            title = stringResource(R.string.setting_decoder_mode),
+            description = stringResource(R.string.setting_decoder_mode_desc),
+            value = decoderMode,
+            options = listOf(
+                Prefs.AUTO to stringResource(R.string.chip_decoder_hw),
+                Prefs.HW_SW to stringResource(R.string.chip_decoder_hw_sw),
+                Prefs.SW to stringResource(R.string.chip_decoder_sw),
+            ),
+            onValueChange = { viewModel.set(Prefs.DECODER_MODE, it) }
+        )
+
+        val avcDecoders = remember { DecoderSelector.listDecoders(DecoderSelector.AVC) }
+        val hevcDecoders = remember { DecoderSelector.listDecoders(DecoderSelector.HEVC) }
+        val autoChip = Prefs.AUTO to stringResource(R.string.chip_auto)
+
+        SettingChipField(
+            title = stringResource(R.string.setting_avc_decoder),
+            description = stringResource(R.string.setting_avc_decoder_desc),
+            value = avcDecoderName,
+            presets = listOf(autoChip) + avcDecoders.map { it.name to _decoderLabel(it) },
+            placeholder = stringResource(R.string.setting_decoder_name_placeholder),
+            onValueChange = { viewModel.set(Prefs.AVC_DECODER, it.trim()) }
+        )
+
+        SettingChipField(
+            title = stringResource(R.string.setting_hevc_decoder),
+            description = stringResource(R.string.setting_hevc_decoder_desc),
+            value = hevcDecoderName,
+            presets = listOf(autoChip) + hevcDecoders.map { it.name to _decoderLabel(it) },
+            placeholder = stringResource(R.string.setting_decoder_name_placeholder),
+            onValueChange = { viewModel.set(Prefs.HEVC_DECODER, it.trim()) }
         )
 
         SettingSwitch(
@@ -442,6 +481,10 @@ fun SettingsScreen(viewModel: MainViewModel) {
         }
     }
 }
+
+// chip label with hints only; every listed decoder stays selectable
+private fun _decoderLabel(e: DecoderEntry): String =
+    e.name + (if (e.software) " \u00B7 SW" else " \u00B7 HW") + (if (e.secureOnly) " \u00B7 secure" else "")
 
 private fun canAutoLaunch(ctx: Context): Boolean =
     Build.VERSION.SDK_INT < Build.VERSION_CODES.Q || Settings.canDrawOverlays(ctx)

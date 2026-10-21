@@ -67,11 +67,31 @@ class VideoRenderer(ctx: Context) {
         pipeline.setDisplaySurface(null)
     }
 
-    fun selectDecoders(w: Int, h: Int, fps: Int, h265: Boolean?): Boolean = synchronized(lock) {
-        avcDecoder = selector.avc()
-        hevcDecoder = if (h265 != false) selector.hevc(avcDecoder, w, h, fps, force = h265 == true) else null
+    // mode/avcName/hevcName are the experimental decoder settings; AUTO without names is the stock behavior
+    fun selectDecoders(
+        w: Int, h: Int, fps: Int, h265: Boolean?,
+        mode: DecodeMode = DecodeMode.AUTO, avcName: String? = null, hevcName: String? = null
+    ): Boolean = synchronized(lock) {
+        val avcMime = DecoderSelector.AVC
+        val hevcMime = DecoderSelector.HEVC
+        avcDecoder = avcName?.let { selector.byName(it, avcMime) } ?: when (mode) {
+            DecodeMode.AUTO -> selector.avc()
+            DecodeMode.HW_SW -> selector.avc() ?: selector.software(avcMime)
+            DecodeMode.SW -> selector.software(avcMime) ?: selector.avc()
+        }
+        val manualHevc = hevcName?.let { selector.byName(it, hevcMime) }
+        hevcDecoder = when {
+            h265 == false -> null
+            manualHevc != null -> manualHevc
+            // software h.265 only when explicitly forced on
+            mode == DecodeMode.SW -> if (h265 == true) selector.software(hevcMime) else null
+            else -> {
+                val hw = selector.hevc(avcDecoder, w, h, fps, force = h265 == true)
+                if (hw == null && mode == DecodeMode.HW_SW && h265 == true) selector.software(hevcMime) else hw
+            }
+        }
         maxFps = fps
-        Log.i(TAG, "decoders: avc=${avcDecoder?.name} hevc=${hevcDecoder?.name}")
+        Log.i(TAG, "decoders: avc=${avcDecoder?.name} hevc=${hevcDecoder?.name} mode=$mode")
         hevcDecoder != null
     }
 
@@ -191,7 +211,8 @@ class VideoRenderer(ctx: Context) {
         val s = pipeline.inputSurface ?: return
         currentH265 = h265
         val mime = if (h265) DecoderSelector.HEVC else DecoderSelector.AVC
-        val info = (if (h265) hevcDecoder else avcDecoder) ?: error("no decoder selected for $mime")
+        val info = (if (h265) hevcDecoder else avcDecoder)
+            ?: error("no decoder selected for $mime (no usable hardware decoder? see Settings > Video decoder)")
 
         firstFrameQueued = false
         try {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AirPlay Server</string>
+    <string name="app_name">AirPlay Server SW</string>
 
     <!-- Notification -->
     <string name="notification_channel">AirPlay Service</string>
@@ -141,6 +141,16 @@
     <!-- Settings: Decode -->
     <string name="setting_h265">H.265 (HEVC)</string>
     <string name="setting_h265_desc">Auto only uses H.265 decoders known to work</string>
+    <string name="setting_decoder_mode">Video decoder (experimental)</string>
+    <string name="setting_decoder_mode_desc">Hardware is the stock behavior. Software decodes on the CPU and may stutter or lag, but also works without a usable hardware decoder. Changing this restarts the server.</string>
+    <string name="chip_decoder_hw">Hardware</string>
+    <string name="chip_decoder_hw_sw">Hardware, else software</string>
+    <string name="chip_decoder_sw">Software only</string>
+    <string name="setting_avc_decoder">H.264 decoder (experimental)</string>
+    <string name="setting_avc_decoder_desc">Pick any decoder this device lists or type a codec name; Auto follows the mode above. HW/SW and secure are hints only, a secure-only decoder will probably not start.</string>
+    <string name="setting_hevc_decoder">H.265 decoder (experimental)</string>
+    <string name="setting_hevc_decoder_desc">Picking a decoder here offers H.265 to senders unless H.265 is Off. In software-only mode Auto offers H.265 only when H.265 is On.</string>
+    <string name="setting_decoder_name_placeholder">Codec name</string>
     <string name="setting_enforce_sdr">MediaFormat.KEY_COLOR_TRANSFER</string>
     <string name="setting_enforce_sdr_desc">Tag video as limited SDR; disable to allow HDR sources to pass through</string>
     <string name="setting_sw_alac">Force software ALAC decoder</string>
