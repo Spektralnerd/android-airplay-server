@@ -27,6 +27,14 @@ jobs:
           java-version: "21"
           cache: "gradle"
 
+      # openssl-cmake downloads from mirror.viaduck.org, which served a broken tarball;
+      # take the official release tarball from GitHub instead (submodule working tree only)
+      - name: OpenSSL source from GitHub
+        run: |
+          f=app/src/main/cpp/third_party/openssl-cmake/cmake/BuildOpenSSL.cmake
+          sed -i 's#https://mirror.viaduck.org/openssl/openssl-${OPENSSL_BUILD_VERSION}.tar.gz#https://github.com/openssl/openssl/releases/download/openssl-${OPENSSL_BUILD_VERSION}/openssl-${OPENSSL_BUILD_VERSION}.tar.gz#' "$f"
+          grep -n "URL https" "$f"
+
       - name: Test signing key
         run: |
           keytool -genkeypair -keystore "$RUNNER_TEMP/swdec.jks" -storepass swdectest -keypass swdectest \
