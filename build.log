@@ -1,0 +1,732 @@
+Fetching distribution.
+Downloading https://services.gradle.org/distributions/gradle-9.8.1-bin.zip
+..............10%..............20%...............30%..............40%...............50%..............60%...............70%..............80%...............90%..............100%
+
+Welcome to Gradle 9.8.1!
+
+Here are the highlights of this release:
+ - Java 27 support
+ - Maven mirror settings reuse
+ - Linked problem locations in build output
+
+For more details see https://docs.gradle.org/9.8.1/release-notes.html
+
+Starting a Gradle Daemon (subsequent builds will be faster)
+
+> Configure project :app
+Checking the license for package NDK (Side by side) 27.0.12077973 in /usr/local/lib/android/sdk/licenses
+License for package NDK (Side by side) 27.0.12077973 accepted.
+Preparing "Install NDK (Side by side) 27.0.12077973 v.27.0.12077973".
+"Install NDK (Side by side) 27.0.12077973 v.27.0.12077973" ready.
+Installing NDK (Side by side) 27.0.12077973 in /usr/local/lib/android/sdk/ndk/27.0.12077973
+"Install NDK (Side by side) 27.0.12077973 v.27.0.12077973" complete.
+"Install NDK (Side by side) 27.0.12077973 v.27.0.12077973" finished.
+
+> Task :app:applyUxplayPatches
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preReleaseBuild UP-TO-DATE
+
+> Task :app:configureCMakeRelWithDebInfo[arm64-v8a]
+Checking the license for package CMake 3.22.1 in /usr/local/lib/android/sdk/licenses
+License for package CMake 3.22.1 accepted.
+Preparing "Install CMake 3.22.1 v.3.22.1".
+"Install CMake 3.22.1 v.3.22.1" ready.
+Installing CMake 3.22.1 in /usr/local/lib/android/sdk/cmake/3.22.1
+"Install CMake 3.22.1 v.3.22.1" complete.
+"Install CMake 3.22.1 v.3.22.1" finished.
+
+> Task :app:buildCMakeRelWithDebInfo[arm64-v8a]
+C/C++: ninja: Entering directory `/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a'
+C/C++: /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:30:10: warning: incompatible pointer types initializing 'node_t *' (aka 'struct node **') with an expression of type 'node_t' (aka 'struct node *') [-Wincompatible-pointer-types]
+C/C++:    30 |         node_t* root = node_create(NULL, NULL);
+C/C++:       |                 ^      ~~~~~~~~~~~~~~~~~~~~~~~
+C/C++: /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:33:28: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+C/C++:    33 |         node_t* one = node_create(root, NULL);
+C/C++:       |                                   ^~~~
+C/C++:       |                                   *
+C/C++: /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:59:27: note: passing argument to parameter 'parent' here
+C/C++:    59 | node_t node_create(node_t parent, void* data);
+C/C++:       |                           ^
+C/C++: /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:33:10: warning: incompatible pointer types initializing 'node_t *' (aka 'struct node **') with an expression of type 'node_t' (aka 'struct node *') [-Wincompatible-pointer-types]
+C/C++:    33 |         node_t* one = node_create(root, NULL);
+C/C++:       |                 ^     ~~~~~~~~~~~~~~~~~~~~~~~
+C/C++: /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:35:28: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+C/C++:    35 |         node_t* two = node_create(root, NULL);
+C/C++:       |                                   ^~~~
+C/C++:       |                                   *
+C/C++: /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:59:27: note: passing argument to parameter 'parent' here
+C/C++:    59 | node_t node_create(node_t parent, void* data);
+C/C++:       |                           ^
+C/C++: /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:35:10: warning: incompatible pointer types initializing 'node_t *' (aka 'struct node **') with an expression of type 'node_t' (aka 'struct node *') [-Wincompatible-pointer-types]
+C/C++:    35 |         node_t* two = node_create(root, NULL);
+C/C++:       |                 ^     ~~~~~~~~~~~~~~~~~~~~~~~
+C/C++: /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:38:30: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+C/C++:    38 |         node_t* three = node_create(one, NULL);
+C/C++:       |                                     ^~~
+C/C++:       |                                     *
+C/C++: /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:59:27: note: passing argument to parameter 'parent' here
+C/C++:    59 | node_t node_create(node_t parent, void* data);
+C/C++:       |                           ^
+C/C++: /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:38:10: warning: incompatible pointer types initializing 'node_t *' (aka 'struct node **') with an expression of type 'node_t' (aka 'struct node *') [-Wincompatible-pointer-types]
+C/C++:    38 |         node_t* three = node_create(one, NULL);
+C/C++:       |                 ^       ~~~~~~~~~~~~~~~~~~~~~~
+C/C++: /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:41:13: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+C/C++:    41 |         node_debug(root);
+C/C++:       |                    ^~~~
+C/C++:       |                    *
+C/C++: /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:75:24: note: passing argument to parameter 'node' here
+C/C++:    75 | void node_debug(node_t node);
+C/C++:       |                        ^
+C/C++: /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:44:15: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+C/C++:    44 |         node_destroy(root);
+C/C++:       |                      ^~~~
+C/C++:       |                      *
+C/C++: /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:58:26: note: passing argument to parameter 'node' here
+C/C++:    58 | void node_destroy(node_t node);
+C/C++:       |                          ^
+C/C++: 9 warnings generated.
+
+> Task :app:buildCMakeRelWithDebInfo[arm64-v8a] FAILED
+
+[Incubating] Problems report is available at: file:///home/runner/work/android-airplay-server/android-airplay-server/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:buildCMakeRelWithDebInfo[arm64-v8a]' (registered by plugin 'com.android.internal.application').
+> com.android.ide.common.process.ProcessException: ninja: Entering directory `/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a'
+  [1/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/base64.c.o
+  [2/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/bytearray.c.o
+  [3/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/hashtable.c.o
+  [4/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/jsmn.c.o
+  [5/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/out-plutil.c.o
+  [6/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/jplist.c.o
+  [7/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/out-limd.c.o
+  [8/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/out-default.c.o
+  [9/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/bplist.c.o
+  [10/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/ptrarray.c.o
+  [11/69] Building C object CMakeFiles/plist.dir/third_party/libplist/libcnary/cnary.c.o
+  /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:30:10: warning: incompatible pointer types initializing 'node_t *' (aka 'struct node **') with an expression of type 'node_t' (aka 'struct node *') [-Wincompatible-pointer-types]
+     30 |         node_t* root = node_create(NULL, NULL);
+        |                 ^      ~~~~~~~~~~~~~~~~~~~~~~~
+  /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:33:28: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+     33 |         node_t* one = node_create(root, NULL);
+        |                                   ^~~~
+        |                                   *
+  /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:59:27: note: passing argument to parameter 'parent' here
+     59 | node_t node_create(node_t parent, void* data);
+        |                           ^
+  /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:33:10: warning: incompatible pointer types initializing 'node_t *' (aka 'struct node **') with an expression of type 'node_t' (aka 'struct node *') [-Wincompatible-pointer-types]
+     33 |         node_t* one = node_create(root, NULL);
+        |                 ^     ~~~~~~~~~~~~~~~~~~~~~~~
+  /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:35:28: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+     35 |         node_t* two = node_create(root, NULL);
+        |                                   ^~~~
+        |                                   *
+  /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:59:27: note: passing argument to parameter 'parent' here
+     59 | node_t node_create(node_t parent, void* data);
+        |                           ^
+  /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:35:10: warning: incompatible pointer types initializing 'node_t *' (aka 'struct node **') with an expression of type 'node_t' (aka 'struct node *') [-Wincompatible-pointer-types]
+     35 |         node_t* two = node_create(root, NULL);
+        |                 ^     ~~~~~~~~~~~~~~~~~~~~~~~
+  /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:38:30: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+     38 |         node_t* three = node_create(one, NULL);
+        |                                     ^~~
+        |                                     *
+  /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:59:27: note: passing argument to parameter 'parent' here
+     59 | node_t node_create(node_t parent, void* data);
+        |                           ^
+  /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:38:10: warning: incompatible pointer types initializing 'node_t *' (aka 'struct node **') with an expression of type 'node_t' (aka 'struct node *') [-Wincompatible-pointer-types]
+     38 |         node_t* three = node_create(one, NULL);
+        |                 ^       ~~~~~~~~~~~~~~~~~~~~~~
+  /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:41:13: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+     41 |         node_debug(root);
+        |                    ^~~~
+        |                    *
+  /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:75:24: note: passing argument to parameter 'node' here
+     75 | void node_debug(node_t node);
+        |                        ^
+  /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:44:15: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+     44 |         node_destroy(root);
+        |                      ^~~~
+        |                      *
+  /home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:58:26: note: passing argument to parameter 'node' here
+     58 | void node_destroy(node_t node);
+        |                          ^
+  9 warnings generated.
+  [12/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/oplist.c.o
+  [13/69] Building C object CMakeFiles/plist.dir/third_party/libplist/libcnary/node.c.o
+  [14/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/time64.c.o
+  [15/69] Building C object CMakeFiles/plist.dir/third_party/libplist/libcnary/node_list.c.o
+  [16/69] Building C object CMakeFiles/llhttp.dir/third_party/UxPlay/lib/llhttp/http.c.o
+  [17/69] Building C object CMakeFiles/playfair.dir/third_party/UxPlay/lib/playfair/modified_md5.c.o
+  [18/69] Building C object CMakeFiles/llhttp.dir/third_party/UxPlay/lib/llhttp/api.c.o
+  [19/69] Building C object CMakeFiles/playfair.dir/third_party/UxPlay/lib/playfair/hand_garble.c.o
+  [20/69] Building C object CMakeFiles/playfair.dir/third_party/UxPlay/lib/playfair/playfair.c.o
+  [21/69] Building C object CMakeFiles/playfair.dir/third_party/UxPlay/lib/playfair/sap_hash.c.o
+  [22/69] Creating directories for 'ffmpeg_ep'
+  [23/69] No download step for 'ffmpeg_ep'
+  [24/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/plist.c.o
+  [25/69] No update step for 'ffmpeg_ep'
+  [26/69] No patch step for 'ffmpeg_ep'
+  [27/69] Creating directories for 'openssl'
+  [28/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/xplist.c.o
+  [29/69] Linking C static library libplist.a
+  [30/69] Building C object CMakeFiles/playfair.dir/third_party/UxPlay/lib/playfair/omg_hax.c.o
+  [31/69] Linking C static library libplayfair.a
+  [32/69] Building C object CMakeFiles/llhttp.dir/third_party/UxPlay/lib/llhttp/llhttp.c.o
+  [33/69] Linking C static library libllhttp.a
+  [34/69] Performing download step (download, verify and extract) for 'openssl'
+  FAILED: third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/openssl-download /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/openssl-download 
+  cd /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src && /usr/local/lib/android/sdk/cmake/3.22.1/bin/cmake -P /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/download-openssl.cmake && /usr/local/lib/android/sdk/cmake/3.22.1/bin/cmake -P /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/verify-openssl.cmake && /usr/local/lib/android/sdk/cmake/3.22.1/bin/cmake -P /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/extract-openssl.cmake && /usr/local/lib/android/sdk/cmake/3.22.1/bin/cmake -E touch /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/openssl-download
+  -- Downloading...
+     dst='/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-3.4.4.tar.gz'
+     timeout='none'
+     inactivity timeout='none'
+  -- Using src='https://mirror.viaduck.org/openssl/openssl-3.4.4.tar.gz'
+  -- [download 100% complete]
+  -- [download 28% complete]
+  -- [download 64% complete]
+  -- [download 100% complete]
+  -- Downloading... done
+  -- extracting...
+       src='/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-3.4.4.tar.gz'
+       dst='/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl'
+  -- extracting... [tar xfz]
+  CMake Error: Problem with archive_read_open_file(): Unrecognized archive format
+  CMake Error: Problem extracting tar: /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-3.4.4.tar.gz
+  -- extracting... [error clean up]
+  CMake Error at openssl-stamp/extract-openssl.cmake:33 (message):
+    error: extract of
+    '/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-3.4.4.tar.gz'
+    failed
+  
+  
+  [35/69] Performing configure step for 'ffmpeg_ep'
+  ninja: build stopped: subcommand failed.
+  
+  C++ build system [build] failed while executing:
+      #!/bin/sh
+      '/usr/local/lib/android/sdk/cmake/3.22.1/bin/ninja' \
+        '-C' \
+        '/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a' \
+        'airplay_native'
+    from /home/runner/work/android-airplay-server/android-airplay-server/app
+
+* Try:
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+* Exception is:
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:buildCMakeRelWithDebInfo[arm64-v8a]' (registered by plugin 'com.android.internal.application').
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.lambda$doExecute$1(DefaultTaskNodeExecutor.java:367)
+	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.doExecute(DefaultTaskNodeExecutor.java:365)
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.executeTrackingTaskIdentity(DefaultTaskNodeExecutor.java:332)
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.executeFinalizingProperties(DefaultTaskNodeExecutor.java:318)
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.executeSkippingWithNoActions(DefaultTaskNodeExecutor.java:289)
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.executeSkippingOnlyIf(DefaultTaskNodeExecutor.java:272)
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.executeCatchingFailures(DefaultTaskNodeExecutor.java:228)
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.executeWithFallbackOperationId(DefaultTaskNodeExecutor.java:197)
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.executeWithLifecycle(DefaultTaskNodeExecutor.java:171)
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.access$000(DefaultTaskNodeExecutor.java:67)
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor$1.run(DefaultTaskNodeExecutor.java:136)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:27)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:48)
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.execute(DefaultTaskNodeExecutor.java:133)
+	at org.gradle.execution.plan.LocalTaskNode.execute(LocalTaskNode.java:229)
+	at org.gradle.execution.DefaultBuildWorkExecutor.lambda$executePlan$0(DefaultBuildWorkExecutor.java:153)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.lambda$execute$0(DefaultPlanExecutor.java:476)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:85)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:475)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:392)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:65)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+Caused by: org.gradle.internal.UncheckedException: com.android.ide.common.process.ProcessException: ninja: Entering directory `/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a'
+[1/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/base64.c.o
+[2/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/bytearray.c.o
+[3/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/hashtable.c.o
+[4/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/jsmn.c.o
+[5/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/out-plutil.c.o
+[6/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/jplist.c.o
+[7/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/out-limd.c.o
+[8/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/out-default.c.o
+[9/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/bplist.c.o
+[10/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/ptrarray.c.o
+[11/69] Building C object CMakeFiles/plist.dir/third_party/libplist/libcnary/cnary.c.o
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:30:10: warning: incompatible pointer types initializing 'node_t *' (aka 'struct node **') with an expression of type 'node_t' (aka 'struct node *') [-Wincompatible-pointer-types]
+   30 |         node_t* root = node_create(NULL, NULL);
+      |                 ^      ~~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:33:28: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+   33 |         node_t* one = node_create(root, NULL);
+      |                                   ^~~~
+      |                                   *
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:59:27: note: passing argument to parameter 'parent' here
+   59 | node_t node_create(node_t parent, void* data);
+      |                           ^
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:33:10: warning: incompatible pointer types initializing 'node_t *' (aka 'struct node **') with an expression of type 'node_t' (aka 'struct node *') [-Wincompatible-pointer-types]
+   33 |         node_t* one = node_create(root, NULL);
+      |                 ^     ~~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:35:28: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+   35 |         node_t* two = node_create(root, NULL);
+      |                                   ^~~~
+      |                                   *
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:59:27: note: passing argument to parameter 'parent' here
+   59 | node_t node_create(node_t parent, void* data);
+      |                           ^
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:35:10: warning: incompatible pointer types initializing 'node_t *' (aka 'struct node **') with an expression of type 'node_t' (aka 'struct node *') [-Wincompatible-pointer-types]
+   35 |         node_t* two = node_create(root, NULL);
+      |                 ^     ~~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:38:30: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+   38 |         node_t* three = node_create(one, NULL);
+      |                                     ^~~
+      |                                     *
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:59:27: note: passing argument to parameter 'parent' here
+   59 | node_t node_create(node_t parent, void* data);
+      |                           ^
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:38:10: warning: incompatible pointer types initializing 'node_t *' (aka 'struct node **') with an expression of type 'node_t' (aka 'struct node *') [-Wincompatible-pointer-types]
+   38 |         node_t* three = node_create(one, NULL);
+      |                 ^       ~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:41:13: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+   41 |         node_debug(root);
+      |                    ^~~~
+      |                    *
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:75:24: note: passing argument to parameter 'node' here
+   75 | void node_debug(node_t node);
+      |                        ^
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:44:15: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+   44 |         node_destroy(root);
+      |                      ^~~~
+      |                      *
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:58:26: note: passing argument to parameter 'node' here
+   58 | void node_destroy(node_t node);
+      |                          ^
+9 warnings generated.
+[12/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/oplist.c.o
+[13/69] Building C object CMakeFiles/plist.dir/third_party/libplist/libcnary/node.c.o
+[14/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/time64.c.o
+[15/69] Building C object CMakeFiles/plist.dir/third_party/libplist/libcnary/node_list.c.o
+[16/69] Building C object CMakeFiles/llhttp.dir/third_party/UxPlay/lib/llhttp/http.c.o
+[17/69] Building C object CMakeFiles/playfair.dir/third_party/UxPlay/lib/playfair/modified_md5.c.o
+[18/69] Building C object CMakeFiles/llhttp.dir/third_party/UxPlay/lib/llhttp/api.c.o
+[19/69] Building C object CMakeFiles/playfair.dir/third_party/UxPlay/lib/playfair/hand_garble.c.o
+[20/69] Building C object CMakeFiles/playfair.dir/third_party/UxPlay/lib/playfair/playfair.c.o
+[21/69] Building C object CMakeFiles/playfair.dir/third_party/UxPlay/lib/playfair/sap_hash.c.o
+[22/69] Creating directories for 'ffmpeg_ep'
+[23/69] No download step for 'ffmpeg_ep'
+[24/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/plist.c.o
+[25/69] No update step for 'ffmpeg_ep'
+[26/69] No patch step for 'ffmpeg_ep'
+[27/69] Creating directories for 'openssl'
+[28/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/xplist.c.o
+[29/69] Linking C static library libplist.a
+[30/69] Building C object CMakeFiles/playfair.dir/third_party/UxPlay/lib/playfair/omg_hax.c.o
+[31/69] Linking C static library libplayfair.a
+[32/69] Building C object CMakeFiles/llhttp.dir/third_party/UxPlay/lib/llhttp/llhttp.c.o
+[33/69] Linking C static library libllhttp.a
+[34/69] Performing download step (download, verify and extract) for 'openssl'
+FAILED: third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/openssl-download /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/openssl-download 
+cd /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src && /usr/local/lib/android/sdk/cmake/3.22.1/bin/cmake -P /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/download-openssl.cmake && /usr/local/lib/android/sdk/cmake/3.22.1/bin/cmake -P /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/verify-openssl.cmake && /usr/local/lib/android/sdk/cmake/3.22.1/bin/cmake -P /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/extract-openssl.cmake && /usr/local/lib/android/sdk/cmake/3.22.1/bin/cmake -E touch /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/openssl-download
+-- Downloading...
+   dst='/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-3.4.4.tar.gz'
+   timeout='none'
+   inactivity timeout='none'
+-- Using src='https://mirror.viaduck.org/openssl/openssl-3.4.4.tar.gz'
+-- [download 100% complete]
+-- [download 28% complete]
+-- [download 64% complete]
+-- [download 100% complete]
+-- Downloading... done
+-- extracting...
+     src='/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-3.4.4.tar.gz'
+     dst='/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl'
+-- extracting... [tar xfz]
+CMake Error: Problem with archive_read_open_file(): Unrecognized archive format
+CMake Error: Problem extracting tar: /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-3.4.4.tar.gz
+-- extracting... [error clean up]
+CMake Error at openssl-stamp/extract-openssl.cmake:33 (message):
+  error: extract of
+  '/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-3.4.4.tar.gz'
+  failed
+
+
+[35/69] Performing configure step for 'ffmpeg_ep'
+ninja: build stopped: subcommand failed.
+
+C++ build system [build] failed while executing:
+    #!/bin/sh
+    '/usr/local/lib/android/sdk/cmake/3.22.1/bin/ninja' \
+      '-C' \
+      '/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a' \
+      'airplay_native'
+  from /home/runner/work/android-airplay-server/android-airplay-server/app
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:69)
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:42)
+	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:129)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.doExecute(StandardTaskAction.java:58)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:268)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:30)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:27)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:48)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:253)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:236)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:219)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:185)
+	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:167)
+	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:47)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:137)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:134)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:210)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:205)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:67)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:167)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:60)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:54)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:134)
+	at org.gradle.internal.execution.steps.ExecuteStep$Mutable.execute(ExecuteStep.java:80)
+	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:42)
+	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:75)
+	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:51)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:29)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.executeMutable(RemovePreviousOutputsStep.java:67)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.executeMutable(RemovePreviousOutputsStep.java:39)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:42)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:24)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:69)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:46)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.executeMutable(ResolveInputChangesStep.java:39)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.executeMutable(ResolveInputChangesStep.java:28)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:189)
+	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:76)
+	at org.gradle.internal.Either$Right.fold(Either.java:176)
+	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:62)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:74)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:49)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.executeMutable(StoreExecutionStateStep.java:46)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.executeMutable(StoreExecutionStateStep.java:35)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:75)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:35)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+	at org.gradle.internal.execution.steps.ResolveMutableCachingStateStep.executeDelegate(ResolveMutableCachingStateStep.java:70)
+	at org.gradle.internal.execution.steps.ResolveMutableCachingStateStep.executeDelegate(ResolveMutableCachingStateStep.java:32)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:69)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:37)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.executeMutable(ResolveChangesStep.java:63)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.executeMutable(ResolveChangesStep.java:34)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:79)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.executeDelegate(ValidateStep.java:65)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:105)
+	at org.gradle.internal.execution.steps.ValidateStep$Mutable.execute(ValidateStep.java:65)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.executeMutable(CaptureMutableStateBeforeExecutionStep.java:86)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:65)
+	at org.gradle.internal.execution.steps.CaptureMutableStateBeforeExecutionStep.execute(CaptureMutableStateBeforeExecutionStep.java:45)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeWithNonEmptySources(SkipEmptyMutableWorkStep.java:210)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:85)
+	at org.gradle.internal.execution.steps.SkipEmptyMutableWorkStep.executeMutable(SkipEmptyMutableWorkStep.java:53)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.executeMutable(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:77)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:43)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$executeMutable$0(AssignMutableWorkspaceStep.java:34)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:314)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:30)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.executeMutable(AssignMutableWorkspaceStep.java:21)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:26)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:56)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:38)
+	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
+	at org.gradle.api.internal.tasks.execution.DefaultTaskNodeExecutor.doExecute(DefaultTaskNodeExecutor.java:364)
+	... 25 more
+Caused by: com.android.ide.common.process.ProcessException: ninja: Entering directory `/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a'
+[1/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/base64.c.o
+[2/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/bytearray.c.o
+[3/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/hashtable.c.o
+[4/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/jsmn.c.o
+[5/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/out-plutil.c.o
+[6/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/jplist.c.o
+[7/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/out-limd.c.o
+[8/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/out-default.c.o
+[9/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/bplist.c.o
+[10/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/ptrarray.c.o
+[11/69] Building C object CMakeFiles/plist.dir/third_party/libplist/libcnary/cnary.c.o
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:30:10: warning: incompatible pointer types initializing 'node_t *' (aka 'struct node **') with an expression of type 'node_t' (aka 'struct node *') [-Wincompatible-pointer-types]
+   30 |         node_t* root = node_create(NULL, NULL);
+      |                 ^      ~~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:33:28: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+   33 |         node_t* one = node_create(root, NULL);
+      |                                   ^~~~
+      |                                   *
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:59:27: note: passing argument to parameter 'parent' here
+   59 | node_t node_create(node_t parent, void* data);
+      |                           ^
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:33:10: warning: incompatible pointer types initializing 'node_t *' (aka 'struct node **') with an expression of type 'node_t' (aka 'struct node *') [-Wincompatible-pointer-types]
+   33 |         node_t* one = node_create(root, NULL);
+      |                 ^     ~~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:35:28: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+   35 |         node_t* two = node_create(root, NULL);
+      |                                   ^~~~
+      |                                   *
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:59:27: note: passing argument to parameter 'parent' here
+   59 | node_t node_create(node_t parent, void* data);
+      |                           ^
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:35:10: warning: incompatible pointer types initializing 'node_t *' (aka 'struct node **') with an expression of type 'node_t' (aka 'struct node *') [-Wincompatible-pointer-types]
+   35 |         node_t* two = node_create(root, NULL);
+      |                 ^     ~~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:38:30: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+   38 |         node_t* three = node_create(one, NULL);
+      |                                     ^~~
+      |                                     *
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:59:27: note: passing argument to parameter 'parent' here
+   59 | node_t node_create(node_t parent, void* data);
+      |                           ^
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:38:10: warning: incompatible pointer types initializing 'node_t *' (aka 'struct node **') with an expression of type 'node_t' (aka 'struct node *') [-Wincompatible-pointer-types]
+   38 |         node_t* three = node_create(one, NULL);
+      |                 ^       ~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:41:13: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+   41 |         node_debug(root);
+      |                    ^~~~
+      |                    *
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:75:24: note: passing argument to parameter 'node' here
+   75 | void node_debug(node_t node);
+      |                        ^
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:44:15: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+   44 |         node_destroy(root);
+      |                      ^~~~
+      |                      *
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:58:26: note: passing argument to parameter 'node' here
+   58 | void node_destroy(node_t node);
+      |                          ^
+9 warnings generated.
+[12/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/oplist.c.o
+[13/69] Building C object CMakeFiles/plist.dir/third_party/libplist/libcnary/node.c.o
+[14/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/time64.c.o
+[15/69] Building C object CMakeFiles/plist.dir/third_party/libplist/libcnary/node_list.c.o
+[16/69] Building C object CMakeFiles/llhttp.dir/third_party/UxPlay/lib/llhttp/http.c.o
+[17/69] Building C object CMakeFiles/playfair.dir/third_party/UxPlay/lib/playfair/modified_md5.c.o
+[18/69] Building C object CMakeFiles/llhttp.dir/third_party/UxPlay/lib/llhttp/api.c.o
+[19/69] Building C object CMakeFiles/playfair.dir/third_party/UxPlay/lib/playfair/hand_garble.c.o
+[20/69] Building C object CMakeFiles/playfair.dir/third_party/UxPlay/lib/playfair/playfair.c.o
+[21/69] Building C object CMakeFiles/playfair.dir/third_party/UxPlay/lib/playfair/sap_hash.c.o
+[22/69] Creating directories for 'ffmpeg_ep'
+[23/69] No download step for 'ffmpeg_ep'
+[24/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/plist.c.o
+[25/69] No update step for 'ffmpeg_ep'
+[26/69] No patch step for 'ffmpeg_ep'
+[27/69] Creating directories for 'openssl'
+[28/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/xplist.c.o
+[29/69] Linking C static library libplist.a
+[30/69] Building C object CMakeFiles/playfair.dir/third_party/UxPlay/lib/playfair/omg_hax.c.o
+[31/69] Linking C static library libplayfair.a
+[32/69] Building C object CMakeFiles/llhttp.dir/third_party/UxPlay/lib/llhttp/llhttp.c.o
+[33/69] Linking C static library libllhttp.a
+[34/69] Performing download step (download, verify and extract) for 'openssl'
+FAILED: third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/openssl-download /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/openssl-download 
+cd /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src && /usr/local/lib/android/sdk/cmake/3.22.1/bin/cmake -P /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/download-openssl.cmake && /usr/local/lib/android/sdk/cmake/3.22.1/bin/cmake -P /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/verify-openssl.cmake && /usr/local/lib/android/sdk/cmake/3.22.1/bin/cmake -P /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/extract-openssl.cmake && /usr/local/lib/android/sdk/cmake/3.22.1/bin/cmake -E touch /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/openssl-download
+-- Downloading...
+   dst='/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-3.4.4.tar.gz'
+   timeout='none'
+   inactivity timeout='none'
+-- Using src='https://mirror.viaduck.org/openssl/openssl-3.4.4.tar.gz'
+-- [download 100% complete]
+-- [download 28% complete]
+-- [download 64% complete]
+-- [download 100% complete]
+-- Downloading... done
+-- extracting...
+     src='/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-3.4.4.tar.gz'
+     dst='/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl'
+-- extracting... [tar xfz]
+CMake Error: Problem with archive_read_open_file(): Unrecognized archive format
+CMake Error: Problem extracting tar: /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-3.4.4.tar.gz
+-- extracting... [error clean up]
+CMake Error at openssl-stamp/extract-openssl.cmake:33 (message):
+  error: extract of
+  '/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-3.4.4.tar.gz'
+  failed
+
+
+[35/69] Performing configure step for 'ffmpeg_ep'
+ninja: build stopped: subcommand failed.
+
+C++ build system [build] failed while executing:
+    #!/bin/sh
+    '/usr/local/lib/android/sdk/cmake/3.22.1/bin/ninja' \
+      '-C' \
+      '/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a' \
+      'airplay_native'
+  from /home/runner/work/android-airplay-server/android-airplay-server/app
+	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.execute(ExecuteProcess.kt:265)
+	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.executeProcess$lambda$1(ExecuteProcess.kt:95)
+	at com.android.build.gradle.internal.cxx.timing.TimingEnvironmentKt.time(TimingEnvironment.kt:28)
+	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.executeProcess(ExecuteProcess.kt:93)
+	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.executeProcess$default(ExecuteProcess.kt:70)
+	at com.android.build.gradle.internal.cxx.build.CxxRegularBuilder.executeProcessBatch(CxxRegularBuilder.kt:283)
+	at com.android.build.gradle.internal.cxx.build.CxxRegularBuilder.build(CxxRegularBuilder.kt:107)
+	at com.android.build.gradle.tasks.ExternalNativeBuildTask.doTaskAction(ExternalNativeBuildTask.kt:61)
+	at com.android.build.gradle.internal.tasks.UnsafeOutputsTask$taskAction$$inlined$recordTaskAction$1.invoke(BaseTask.kt:71)
+	at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
+	at com.android.build.gradle.internal.tasks.UnsafeOutputsTask.taskAction(UnsafeOutputsTask.kt:72)
+	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+	... 124 more
+Caused by: com.android.ide.common.process.ProcessException: ninja: Entering directory `/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a'
+[1/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/base64.c.o
+[2/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/bytearray.c.o
+[3/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/hashtable.c.o
+[4/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/jsmn.c.o
+[5/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/out-plutil.c.o
+[6/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/jplist.c.o
+[7/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/out-limd.c.o
+[8/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/out-default.c.o
+[9/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/bplist.c.o
+[10/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/ptrarray.c.o
+[11/69] Building C object CMakeFiles/plist.dir/third_party/libplist/libcnary/cnary.c.o
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:30:10: warning: incompatible pointer types initializing 'node_t *' (aka 'struct node **') with an expression of type 'node_t' (aka 'struct node *') [-Wincompatible-pointer-types]
+   30 |         node_t* root = node_create(NULL, NULL);
+      |                 ^      ~~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:33:28: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+   33 |         node_t* one = node_create(root, NULL);
+      |                                   ^~~~
+      |                                   *
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:59:27: note: passing argument to parameter 'parent' here
+   59 | node_t node_create(node_t parent, void* data);
+      |                           ^
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:33:10: warning: incompatible pointer types initializing 'node_t *' (aka 'struct node **') with an expression of type 'node_t' (aka 'struct node *') [-Wincompatible-pointer-types]
+   33 |         node_t* one = node_create(root, NULL);
+      |                 ^     ~~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:35:28: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+   35 |         node_t* two = node_create(root, NULL);
+      |                                   ^~~~
+      |                                   *
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:59:27: note: passing argument to parameter 'parent' here
+   59 | node_t node_create(node_t parent, void* data);
+      |                           ^
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:35:10: warning: incompatible pointer types initializing 'node_t *' (aka 'struct node **') with an expression of type 'node_t' (aka 'struct node *') [-Wincompatible-pointer-types]
+   35 |         node_t* two = node_create(root, NULL);
+      |                 ^     ~~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:38:30: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+   38 |         node_t* three = node_create(one, NULL);
+      |                                     ^~~
+      |                                     *
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:59:27: note: passing argument to parameter 'parent' here
+   59 | node_t node_create(node_t parent, void* data);
+      |                           ^
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:38:10: warning: incompatible pointer types initializing 'node_t *' (aka 'struct node **') with an expression of type 'node_t' (aka 'struct node *') [-Wincompatible-pointer-types]
+   38 |         node_t* three = node_create(one, NULL);
+      |                 ^       ~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:41:13: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+   41 |         node_debug(root);
+      |                    ^~~~
+      |                    *
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:75:24: note: passing argument to parameter 'node' here
+   75 | void node_debug(node_t node);
+      |                        ^
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/cnary.c:44:15: warning: incompatible pointer types passing 'node_t *' (aka 'struct node **') to parameter of type 'node_t' (aka 'struct node *'); dereference with * [-Wincompatible-pointer-types]
+   44 |         node_destroy(root);
+      |                      ^~~~
+      |                      *
+/home/runner/work/android-airplay-server/android-airplay-server/app/src/main/cpp/third_party/libplist/libcnary/include/node.h:58:26: note: passing argument to parameter 'node' here
+   58 | void node_destroy(node_t node);
+      |                          ^
+9 warnings generated.
+[12/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/oplist.c.o
+[13/69] Building C object CMakeFiles/plist.dir/third_party/libplist/libcnary/node.c.o
+[14/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/time64.c.o
+[15/69] Building C object CMakeFiles/plist.dir/third_party/libplist/libcnary/node_list.c.o
+[16/69] Building C object CMakeFiles/llhttp.dir/third_party/UxPlay/lib/llhttp/http.c.o
+[17/69] Building C object CMakeFiles/playfair.dir/third_party/UxPlay/lib/playfair/modified_md5.c.o
+[18/69] Building C object CMakeFiles/llhttp.dir/third_party/UxPlay/lib/llhttp/api.c.o
+[19/69] Building C object CMakeFiles/playfair.dir/third_party/UxPlay/lib/playfair/hand_garble.c.o
+[20/69] Building C object CMakeFiles/playfair.dir/third_party/UxPlay/lib/playfair/playfair.c.o
+[21/69] Building C object CMakeFiles/playfair.dir/third_party/UxPlay/lib/playfair/sap_hash.c.o
+[22/69] Creating directories for 'ffmpeg_ep'
+[23/69] No download step for 'ffmpeg_ep'
+[24/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/plist.c.o
+[25/69] No update step for 'ffmpeg_ep'
+[26/69] No patch step for 'ffmpeg_ep'
+[27/69] Creating directories for 'openssl'
+[28/69] Building C object CMakeFiles/plist.dir/third_party/libplist/src/xplist.c.o
+[29/69] Linking C static library libplist.a
+[30/69] Building C object CMakeFiles/playfair.dir/third_party/UxPlay/lib/playfair/omg_hax.c.o
+[31/69] Linking C static library libplayfair.a
+[32/69] Building C object CMakeFiles/llhttp.dir/third_party/UxPlay/lib/llhttp/llhttp.c.o
+[33/69] Linking C static library libllhttp.a
+[34/69] Performing download step (download, verify and extract) for 'openssl'
+FAILED: third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/openssl-download /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/openssl-download 
+cd /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src && /usr/local/lib/android/sdk/cmake/3.22.1/bin/cmake -P /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/download-openssl.cmake && /usr/local/lib/android/sdk/cmake/3.22.1/bin/cmake -P /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/verify-openssl.cmake && /usr/local/lib/android/sdk/cmake/3.22.1/bin/cmake -P /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/extract-openssl.cmake && /usr/local/lib/android/sdk/cmake/3.22.1/bin/cmake -E touch /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-stamp/openssl-download
+-- Downloading...
+   dst='/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-3.4.4.tar.gz'
+   timeout='none'
+   inactivity timeout='none'
+-- Using src='https://mirror.viaduck.org/openssl/openssl-3.4.4.tar.gz'
+-- [download 100% complete]
+-- [download 28% complete]
+-- [download 64% complete]
+-- [download 100% complete]
+-- Downloading... done
+-- extracting...
+     src='/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-3.4.4.tar.gz'
+     dst='/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl'
+-- extracting... [tar xfz]
+CMake Error: Problem with archive_read_open_file(): Unrecognized archive format
+CMake Error: Problem extracting tar: /home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-3.4.4.tar.gz
+-- extracting... [error clean up]
+CMake Error at openssl-stamp/extract-openssl.cmake:33 (message):
+  error: extract of
+  '/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a/third_party/openssl-cmake/openssl-prefix/src/openssl-3.4.4.tar.gz'
+  failed
+
+
+[35/69] Performing configure step for 'ffmpeg_ep'
+ninja: build stopped: subcommand failed.
+
+C++ build system [build] failed while executing:
+    #!/bin/sh
+    '/usr/local/lib/android/sdk/cmake/3.22.1/bin/ninja' \
+      '-C' \
+      '/home/runner/work/android-airplay-server/android-airplay-server/app/.cxx/RelWithDebInfo/r2a351c2/arm64-v8a' \
+      'airplay_native'
+  from /home/runner/work/android-airplay-server/android-airplay-server/app
+	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.execute(ExecuteProcess.kt:246)
+	... 135 more
+
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.8.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 1m 27s
+3 actionable tasks: 3 executed
