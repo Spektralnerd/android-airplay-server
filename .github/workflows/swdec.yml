@@ -35,12 +35,36 @@ jobs:
             "$RUNNER_TEMP/swdec.jks" > local.properties
 
       - name: Build
+        shell: bash
         run: |
           export SOURCE_DATE_EPOCH=$(git log -1 --pretty=%ct)
           chmod +x ./gradlew
-          ./gradlew assembleRelease --stacktrace
+          ./gradlew assembleRelease --stacktrace 2>&1 | tee "$RUNNER_TEMP/build.log"
           cp app/build/outputs/apk/release/app-release.apk "airplay-swdec-${{ github.run_number }}.apk"
           rm local.properties
+
+      # run logs live on a host the dev session can't reach, so failures are
+      # surfaced as annotations and the full log is pushed to branch swdec-log
+      - name: Report build errors
+        if: failure()
+        shell: bash
+        run: |
+          log="$RUNNER_TEMP/build.log"
+          [ -f "$log" ] || exit 0
+          { grep -E '^e: |error:|FAILED' "$log" || true; grep -A4 'What went wrong' "$log" || true; } \
+            | head -20 | cut -c1-900 | while IFS= read -r line; do
+              line=${line//'%'/'%25'}
+              echo "::error::$line"
+            done
+          tmp=$(mktemp -d)
+          cp "$log" "$tmp/build.log"
+          cd "$tmp"
+          git init -q
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add build.log
+          git commit -qm "build log of run ${{ github.run_number }}"
+          git push -qf "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" HEAD:refs/heads/swdec-log
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
